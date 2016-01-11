@@ -7,7 +7,6 @@ import pywintypes
 import win32api
 import subprocess
 from _winreg import *
-import getpass
 import win32com.shell.shell as shell
 
 
