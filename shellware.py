@@ -15,18 +15,6 @@ def autorun(dir, fileName, run):
 	os.system('copy %s %s'%(fileName, dir))
 
 	# Queries Windows registry for the autorun key value
-	key = OpenKey(HKEY_LOCAL_MACHINE, run)
-	runkey =[]
-	try:
-		i = 0
-		while True:
-			subkey = EnumValue(key, i)
-			runkey.append(subkey[0])
-			i += 1
-	except WindowsError:
-		pass
-
-	# Queries Windows registry for the autorun key value
 	# Stores the key values in runkey array
 	key = OpenKey(HKEY_LOCAL_MACHINE, run)
 	runkey =[]
