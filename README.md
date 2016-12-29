@@ -13,5 +13,5 @@ payload with the Metasploit Framework.
 
 
 #Usage
-Compile the script to exe with pyinstaller using the --noconsole and --onefile flags and the program is ready for distribution. 
+Compile the script to exe with pyinstaller and the program is ready for distribution. 
   
